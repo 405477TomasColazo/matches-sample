@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { MatchInfoComponent } from '../match-info/match-info.component';
-import { NgFor, NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-matches-view',
   standalone: true,
-  imports: [MatchInfoComponent, NgIf, NgFor],
+  imports: [MatchInfoComponent, CommonModule, FormsModule],
   templateUrl: './matches-view.component.html',
   styleUrl: './matches-view.component.css',
 })

@@ -1,12 +1,25 @@
 <!-- <p *ngIf="matchSelected">Seleccionado: {{ matchSelected }}</p> -->
 @if (matchSelected){
-<p>Selecionado: {{ matchSelected }}</p>
+<p
+  [ngStyle]="{
+    color: 'red'
+  }"
+>
+  Selecionado: {{ matchSelected }}
+</p>
+<input [(ngModel)]="matchSelected" />
 } @else{ }
-<app-match-info
+<!-- <app-match-info
   *ngFor="let match of matches"
   [match]="match"
   (selectedMatch)="onSelected($event)"
+/> -->
+@for(match of matches; track match; let index = $index){
+<app-match-info
+  [ngClass]="{
+    title: index == 0
+  }"
+  [match]="match"
+  (selectedMatch)="onSelected($event)"
 />
-<!-- @for(match of matches; track){
-<app-match-info [match]="match" (selectedMatch)="onSelected($event)" />
-} -->
+}
