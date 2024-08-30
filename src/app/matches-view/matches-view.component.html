@@ -1,8 +1,12 @@
-<p [style.display]="matchSelected ? 'block' : 'none'">
-    Seleccionado: {{matchSelected}}
-</p>
-
-<app-match-info [match]="matches[0]" 
-(selectedMatch)="onSelected($event)" />
-<app-match-info [match]="matches[1]" 
-(selectedMatch)="onSelected($event)" />
+<!-- <p *ngIf="matchSelected">Seleccionado: {{ matchSelected }}</p> -->
+@if (matchSelected){
+<p>Selecionado: {{ matchSelected }}</p>
+} @else{ }
+<app-match-info
+  *ngFor="let match of matches"
+  [match]="match"
+  (selectedMatch)="onSelected($event)"
+/>
+<!-- @for(match of matches; track){
+<app-match-info [match]="match" (selectedMatch)="onSelected($event)" />
+} -->
