@@ -19,7 +19,9 @@
   [ngClass]="{
     title: index == 0
   }"
-  [match]="match"
+  [match].name="match"
   (selectedMatch)="onSelected($event)"
 />
 }
+<button (click)="onDeleteLast()">Eliminar Uiltimo</button>
+<p>Mi fecha: {{ myDate | date : "dd/MM/yyyy" }}</p>
